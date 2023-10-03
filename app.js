@@ -76,11 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if(cuenta.retirar(cantidad) && esNumero.test(cantidad)){
             saldoInput.value=cuenta.saldo
             mensaje.textContent="Dinero retirado correctamente: "+cantidad 
+            eliminarMensaje(mensaje)
 
         }else{
             console.log("Algo va mal")
         }
 
+    }
+
+    function eliminarMensaje(mensaje){
+        setTimeout(function () {
+            mensaje.textContent = ""; // Borra el contenido del mensaje
+        }, 1000);
     }
 
 })
