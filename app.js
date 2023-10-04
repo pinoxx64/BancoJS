@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var haySuficiente = true
 
             if (cantidad > 0) {
-                this.saldo -= cantidad
+                this.saldo += cantidad
                 haySuficiente = true
             } else {
                 haySuficiente = false
@@ -88,14 +88,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (resultadoComprobacion.esNumero) {
             if (cuenta.retirar(cantidad)) {
                 saldoInput.value = cuenta.saldo
-                mensajeConfirmacion.textContent = "Dinero retirado correctamente: " + cantidad
+                mensajeConfirmacion.textContent = "Dinero retirado correctamente: " + cantidad + " €"
                 eliminarMensaje(mensajeConfirmacion)
             } else {
                 mensajeConfirmacion.textContent = "No hay dinero suficiente"
                 eliminarMensaje(mensajeConfirmacion)
             }
         } else {
-            error.textContent=resultadoComprobacion.mensaje
+            error.textContent = resultadoComprobacion.mensaje
             eliminarMensaje(error)
         }
 
@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var objetoComprobacion = { esNumero: false, mensaje: "" }
 
         if (numeroRegex.test(cantidad)) {
-            objetoComprobacion = {esNumero:true,mensaje:""}
+            objetoComprobacion = { esNumero: true, mensaje: "" }
         } else {
-            objetoComprobacion= {esNumero:false,mensaje:"Introduce un numero"}
+            objetoComprobacion = { esNumero: false, mensaje: "Introduce un numero" }
         }
 
         return objetoComprobacion
@@ -121,8 +121,20 @@ document.addEventListener("DOMContentLoaded", function () {
         var cantidad = parseFloat(saldoIngresar.value)
         var resultadoComprobacion = comprobarSiNumero(cantidad)
 
-    }
+        if (resultadoComprobacion.esNumero) {
+            if (cuenta.ingresar(cantidad)) {
+                saldoInput.value = cuenta.saldo
+                mensajeConfirmacion.textContent = "Dinero ingresado correctamente: " + cantidad + " €"
+                eliminarMensaje(mensajeConfirmacion)
 
+            } else {
+                error.textContent = resultadoComprobacion.mensaje
+                eliminarMensaje(mensajeConfirmacion)
+
+            }
+
+        }
+    }
 
 
 
