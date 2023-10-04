@@ -1,23 +1,33 @@
-
-
-function cargarDatos() {
-    /*document.getElementById('idPersona').value = persona.id
-    document.getElementById('nombre').value = persona.nombre
-    document.getElementById('apellido1').value = persona.apellido1
-    document.getElementById('apellido2').value = persona.apellido2
-    document.getElementById('nacionalidad').value = persona.nacionalidad*/
-    menu = document.getElementById('menu').innerHTML
-}
-
-
-
-function cargarCabecera(dest) {
-    document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>'
-}
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
+    function cargarDatos() {
+        /*document.getElementById('idPersona').value = persona.id
+        document.getElementById('nombre').value = persona.nombre
+        document.getElementById('apellido1').value = persona.apellido1
+        document.getElementById('apellido2').value = persona.apellido2
+        document.getElementById('nacionalidad').value = persona.nacionalidad*/
+    }
+
+
+
+    function cargarCabecera() {
+        var cabecera = document.createElement("header")
+        cabecera.innerHTML = `
+       <div id="menu">
+           <h1>BancoPuertollano</h1>
+           <ul>
+               <li><a href="index.html">Inicio</a></li>
+               <li><a href="infoCuenta.html">Información Cuenta</a></li>
+               <li><a href="tarjetas.html">Tarjetas</a></li>
+           </ul>
+       </div>
+       `
+        return cabecera
+    }
+    
+    document.body.appendChild(cargarCabecera())
+
+
+
     class Cuenta {
         constructor(iban, saldo) {
             this.iban = iban
@@ -28,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var haySuficiente = true
 
             if (cantidad > 0) {
-                this.saldo += cantidad
+                this.saldo = cantidad
                 haySuficiente = true
             } else {
                 haySuficiente = false
@@ -54,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500)
+    
 
 
     var ibanInput = document.getElementById("iban")
@@ -74,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function eliminarMensaje(mensajeConfirmacion) {
         setTimeout(function () {
-            mensajeConfirmacion.textContent = ""; // Borra el contenido del mensajeConfirmacion
+            mensajeConfirmacion.textContent = ""; 
         }, 1000);
     }
 
@@ -132,13 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 eliminarMensaje(mensajeConfirmacion)
 
             }
-
         }
     }
-
-
-
-
 })
 
 
