@@ -15,8 +15,8 @@
     </head>
 
     <body>
-        <h2>Operaciones Bancarias</h2>
-
+        
+        <script src="app.js"></script>
         <section class="container">
             <form action="" method="POST">
                 <label for="iban">IBAN:</label>
@@ -28,14 +28,17 @@
                 <label for="saldo_retirar">Saldo a Retirar:</label>
                 <input type="text" id="saldo-retirar" name="saldo_retirar"><br>
                 <button type="button" id="btn-retirar" name="retirar">Retirar</button><br>
-                
+
                 <label for="saldo_ingresar">Saldo a Ingresar:</label>
                 <input type="number" id="saldo-ingresar" name="saldo_ingresar" step="0.01"><br>
                 <button type="button" id="btn-ingresar" name="ingresar">Ingresar</button><br>
-                <p id="mensaje"></p>
+
+
             </form>
         </section>
-        <script src="app.js"></script>
+        <p id="mensaje"></p>
+        <p id="error"></p>
+       
     </body>
 
     </html>
