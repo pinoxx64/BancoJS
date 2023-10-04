@@ -5,8 +5,20 @@
     <link rel="stylesheet" type="text/css" href="estilos.css" />
 </head>
 <body>
-    <script src="app.js"></script>
-    
+    <div id="menu">
+        <script src="app.js"></script>
+        <main>
+            <h2>Tarjetas</h2><br>
+            <b>Número de cuenta  Número de tarjeta  Activa</b>
+            <!---<p id="cuenta"></p><p id="tarjeta"></p><p id="activo"></p><br>
+            <input type="button" value="Genera una tabla" onclick="genera_tabla()" /><br>--->
+            <h2>Agregar Tarjeta</h2>
+            <b>Nombre: </b><input type="text" value="" id="tarjeta" placeholder="Número de tarjeta"><br>
+            <b>CVV: </b><input type="text" value="" id="cvv" placeholder="CVV"><br>
+            <b>Actividad: </b><input type="checkbox" id="act"><br>
+            <input type="button" id="guardar" value="Guardar tarjeta" onclick="guardar()">
+        </main>
+    </div>
 </body>
 
 </html>
