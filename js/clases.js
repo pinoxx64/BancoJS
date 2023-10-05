@@ -1,7 +1,8 @@
 export class Cuenta {
-    constructor(iban, saldo) {
+    constructor(iban, saldo, tarjetas) {
         this.iban = iban
         this.saldo = saldo
+        this.tarjetas = tarjetas
     }
 
     ingresar(cantidad) {
