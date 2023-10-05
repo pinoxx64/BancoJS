@@ -26,13 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.body.appendChild(cargarCabecera())
 
-
+    class Tarjeta{
+        constructor(num,cvv,act){
+            this.num=num;
+            this.cvv=cvv;
+            this.act=act;
+        }
+    }
 
     class Cuenta {
-        constructor(iban, saldo) {
+        constructor(iban, saldo, tarjetas) {
             this.iban = iban
             this.saldo = saldo
+            this.tarjetas = tarjetas
         }
+
 
         ingresar(cantidad) {
             var haySuficiente = true
@@ -61,9 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-
-    var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500)
+    var tarjetas=[]
+    var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500, tarjetas)
     
 
 
@@ -147,31 +154,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 })
 
-
-
-
-
-function guardar() {
-    var num=document.getElementById('tarjeta').value
-    var cvv=document.getElementById('cvv').value
-    var act=document.getElementById('act').value
-    if(act==true){
-        act='Si'
-    }else{
-        act='No'
+    function crearTarjeta(num,cvv,act) {
+        return tarjeta=new Tarjeta(num,cvv,act)
     }
-    var tarjetas=[]
-    var tarje= new Tarjeta(num,cvv,act);
-    tarjetas.push(tarje);
-    console.log(tarje)
-}
-class Tarjeta{
-    constructor(num,cvv,act){
-        this.num=num;
-        this.cvv=cvv;
-        this.act=act;
+    function guardar() {
+        var num=document.getElementById('tarjeta').value
+        var cvv=document.getElementById('cvv').value
+        var act=document.getElementById('act').value
+        if(act==true){
+            act='Si'
+        }else{
+            act='No'
+        }
+        cuanta.tarjetas.push(crearTarjeta(num,cvv,act));
+        console.log(cuanta)
     }
-}
+
 /*function genera_tabla() {
     // Obtener la referencia del elemento body
     var body = document.getElementsByTagName("body")[0];
