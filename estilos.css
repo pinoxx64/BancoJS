@@ -50,6 +50,7 @@ form {
 label {
     display: block;
     margin-bottom: 20px;
+    background-color: white;
 }
 
 input[type="text"],
@@ -87,8 +88,8 @@ br {
 /* Estilo para mensajes de error (opcional) */
 #error,#mensaje {
     color: #f00;
-    margin-top: 20px;
     text-align: center;
+    position: relative;
 }
 
 #mensaje{
