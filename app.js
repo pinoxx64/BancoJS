@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
             act='No'
         }
         cuanta.tarjetas.push(crearTarjeta(num,cvv,act));
-        console.log(cuanta)
+        console.log(cuenta)
     }
 
 /*function genera_tabla() {
