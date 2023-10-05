@@ -1,8 +1,8 @@
 import {Cuenta} from './clases.js'
 import {comprobarSiNumero} from './utilidades.js'
 
-
-export var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500)
+var tarjetas=[]
+export var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500, tarjetas)
 var ibanInput = document.getElementById("iban")
     var saldoInput = document.getElementById("saldo")
     var btnRetirar = document.getElementById("btn-retirar")
