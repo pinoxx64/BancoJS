@@ -1,14 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-    function cargarDatos() {
-        /*document.getElementById('idPersona').value = persona.id
-        document.getElementById('nombre').value = persona.nombre
-        document.getElementById('apellido1').value = persona.apellido1
-        document.getElementById('apellido2').value = persona.apellido2
-        document.getElementById('nacionalidad').value = persona.nacionalidad*/
+    class Persona{
+        constructor(nombre,ape1,ape2,nac){
+            this.nombre=nombre
+            this.ape1=ape1
+            this.ape2=ape2
+            this.nac=nac
+        }
     }
 
+    function cargarDatos() {
+        var persona=new Persona('David','Gutierrez','Lopez','Marroqui')
+
+        document.getElementById('nombre').value = persona.nombre
+        document.getElementById('apellido1').value = persona.ape1
+        document.getElementById('apellido2').value = persona.ape2
+        document.getElementById('nacionalidad').value = persona.nac
+    }
+    cargarDatos()
 
 
+
+    
     function cargarCabecera() {
         var cabecera = document.createElement("header")
         cabecera.innerHTML = `
