@@ -148,9 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
-
-
-
 function guardar() {
     var num=document.getElementById('tarjeta').value
     var cvv=document.getElementById('cvv').value
