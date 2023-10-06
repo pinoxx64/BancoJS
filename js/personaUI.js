@@ -1,9 +1,16 @@
-import {Persona} from "./clases"
+import {Persona} from "./clases.js"
 
-function cargarDatos() {
-    var persona = new Persona('David', 'Gutierrez', 'Lopez', 'Marroqui')
-    document.getElementById('nombre').value = persona.nombre
-    document.getElementById('apellido1').value = persona.ape1
-    document.getElementById('apellido2').value = persona.ape2
-    document.getElementById('nacionalidad').value = persona.nac
-}
+document.addEventListener("DOMContentLoaded", function () {
+    function cargarDatos() {
+        var persona = new Persona('David', 'Gutierrez', 'Lopez', 'Marroqui')
+        document.getElementById('nombre').value = persona.nombre
+        document.getElementById('apellido1').value = persona.ape1
+        document.getElementById('apellido2').value = persona.ape2
+        document.getElementById('nacionalidad').value = persona.nac
+    }
+
+    cargarDatos()
+
+})
+
+

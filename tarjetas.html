@@ -8,18 +8,18 @@
 
 <body>
     <script src="./js/cargarCabecera.js"></script>
-    
+    <script type="module" src="./js/tarjetaUI.js"></script>
     <div id="menu">
         <section class="contenedor">
             <form action="" method="POST">
                 <h2>Tarjetas</h2><br>
                 <b>Número de cuenta Número de tarjeta Activa</b>
-
+                <div id="tablas"></div>
                 <h2>Agregar Tarjeta</h2>
                 <b>Nombre: </b><input type="text" value="" id="tarjeta" placeholder="Número de tarjeta"><br>
                 <b>CVV: </b><input type="text" value="" id="cvv" placeholder="CVV"><br>
                 <b>Actividad: </b><input type="checkbox" id="act"><br>
-                <input type="button" class="btn" id="guardar" value="Guardar tarjeta" onclick="guardar()">
+                <input type="button" class="btn" id="guardar" value="Guardar tarjeta">
             </form>
         </section>
 
