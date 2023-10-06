@@ -1,6 +1,8 @@
 import {Tarjeta,Cuenta} from "./clases.js"
 
 document.addEventListener("DOMContentLoaded", function () {
+    var boton=document.getElementById('guardar')
+    boton.addEventListener('click', guardar)
     function guardar() {
         var tarjetas = []
         var cuenta = new Cuenta("ES21 1465 0100 72 2030876293", 500, tarjetas)
