@@ -1,5 +1,4 @@
 import { Cuenta } from './clases.js'
-import { comprobarSiNumero } from './utilidades.js'
 
 document.addEventListener("DOMContentLoaded", function () {
     var tarjetas = []
@@ -10,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnIngresar = document.getElementById("btn-ingresar")
     var mensajeConfirmacion = document.getElementById("mensaje")
     var error = document.getElementById("error")
+
+
 
 
     function cargarDatosCuenta() {
@@ -24,11 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     cargarDatosCuenta()
 
+    function comprobarSiNumero(cantidad) {
+        var numeroRegex = /\d/
+        var objetoComprobacion = { esNumero: false, mensaje: "" }
 
-    function eliminarMensaje(mensajeConfirmacion) {
-        setTimeout(function () {
-            mensajeConfirmacion.textContent = "";
-        }, 1000);
+        if (numeroRegex.test(cantidad)) {
+            objetoComprobacion = { esNumero: true, mensaje: "" }
+        } else {
+            objetoComprobacion = { esNumero: false, mensaje: "Introduce un numero" }
+        }
+
+        return objetoComprobacion
     }
 
 
@@ -43,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 mensajeConfirmacion.textContent = "Dinero retirado correctamente: " + cantidad + " €"
                 eliminarMensaje(mensajeConfirmacion)
             } else {
-                mensajeConfirmacion.textContent = "No hay dinero suficiente"
-                eliminarMensaje(mensajeConfirmacion)
+                error.textContent = "No hay dinero suficiente"
+                eliminarMensaje(error)
             }
         } else {
             error.textContent = resultadoComprobacion.mensaje
@@ -70,8 +77,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 eliminarMensaje(mensajeConfirmacion)
 
             }
+        } else {
+            error.textContent = resultadoComprobacion.mensaje
+            eliminarMensaje(error)
         }
     }
 
 
 })
+
+export function eliminarMensaje(mensajeConfirmacion) {
+    setTimeout(function () {
+        mensajeConfirmacion.textContent = "";
+    }, 1000);
+}

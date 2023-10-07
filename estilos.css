@@ -90,6 +90,7 @@ br {
     color: #f00;
     text-align: center;
     position: relative;
+    background-color: white;
 }
 
 #mensaje{
