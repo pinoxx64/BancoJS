@@ -1,4 +1,5 @@
 import {Tarjeta,Cuenta} from "./clases.js"
+import { eliminarMensaje } from "./cuentaUI.js"
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -19,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             act = 'No'
         }
-        let cadenaNum=/^[0-9]{16}/
-        let cadenaCvv=/^[0-9]{3}/
+        let cadenaNum=/^[0-9]{16}$/
+        let cadenaCvv=/^[0-9]{3}$/
         if (cadenaNum.test(num) && cadenaCvv.test(cvv)) {
             var tarje = new Tarjeta(num, cvv, act);
             tarjeta.push(tarje)
@@ -40,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             contTablas.innerHTML=tabla
         }else{
             mensaje.innerHTML='Error con el tamaño del número (16) o del cvv (3)'
+            eliminarMensaje(mensaje);
         }
     }
 
